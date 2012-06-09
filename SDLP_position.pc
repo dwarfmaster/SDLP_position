@@ -5,7 +5,7 @@ includedir=${prefix}/includes
 
 Name: SDLP_vector2f
 Description: Float vector library for Simple DirectMedia Layer
-Version: 0.1
+Version: 1.0
 Requires: sdl >= 1.2.10
 Libs: -L${libdir} -lSDLP_position
 Cflags: -I${includedir} -std=gnu++0x
