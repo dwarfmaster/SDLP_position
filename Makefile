@@ -1,4 +1,4 @@
-OBJS=vector2f.o tools.o
+OBJS=vector2f.o tools.o aabb.o
 NAME=SDLP_position
 
 CXXFLAGS=-Wall -Wextra `sdl-config --cflags` -fPIC -fsigned-bitfields -std=gnu++0x -g
