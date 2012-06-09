@@ -36,14 +36,14 @@ namespace sdl
 
 	AABB& AABB::set(const Pointsi& p1, const Pointsi& p2)
 	{
-		Pointsi min(std::min(p1.x,p2.x), std::min(p1.y,p2.y));
-		Pointsi max(std::max(p1.x,p2.x), std::max(p1.y,p2.y));
+		Pointsi minp = min<signed int>(p1, p2);
+		Pointsi maxp = max<signed int>(p1, p2);
 
-		m_aabb.x = min.x;
-		m_aabb.y = min.y;
+		m_aabb.x = minp.x;
+		m_aabb.y = minp.y;
 
-		m_aabb.w = max.x - min.x;
-		m_aabb.h = max.y - min.y;
+		m_aabb.w = maxp.x - minp.x;
+		m_aabb.h = maxp.y - minp.y;
 
 		return *this;
 	}
@@ -91,21 +91,28 @@ namespace sdl
 				return Pointsi(m_aabb);
 				break;
 			case TOP_MIDDLE:
+				return middle<signed int>(location(TOP_LEFT), location(TOP_RIGHT));
 				break;
 			case TOP_RIGHT:
 				return Pointsi(m_aabb.x + m_aabb.w, m_aabb.y);
 				break;
 			case RIGHT:
+				return middle<signed int>(location(BOTTOM_RIGHT), location(TOP_RIGHT));
 				break;
 			case BOTTOM_RIGHT:
 				return Pointsi(m_aabb.x + m_aabb.w, m_aabb.y + m_aabb.h);
 				break;
 			case BOTTOM_MIDDLE:
+				return middle<signed int>(location(BOTTOM_LEFT), location(BOTTOM_RIGHT));
 				break;
 			case BOTTOM_LEFT:
 				return Pointsi(m_aabb.x, m_aabb.y + m_aabb.h);
 				break;
 			case LEFT:
+				return middle<signed int>(location(TOP_LEFT), location(BOTTOM_LEFT));
+				break;
+			default://Ne peut pas arriver
+				return Pointsi(0,0);
 				break;
 		}
 	}
