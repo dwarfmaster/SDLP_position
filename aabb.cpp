@@ -190,6 +190,17 @@ namespace sdl
 			return true;
 	}
 
+	bool AABB::isIn(const Pointsi& p) const
+	{
+		if(p.x < m_aabb.x
+				|| p.x > m_aabb.x + m_aabb.w
+				|| p.y < m_aabb.y
+				|| p.y > m_aabb.y + m_aabb.h )
+			return false;
+		else
+			return true;
+	}
+
 	AABB& AABB::operator=(const AABB& cp)
 	{
 		return this->set(cp);
