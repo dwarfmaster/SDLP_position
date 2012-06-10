@@ -190,7 +190,7 @@ namespace sdl
 			return true;
 	}
 
-	bool AABB::isIn(const Pointsi& p) const
+	bool AABB::contain(const Pointsi& p) const
 	{
 		if(p.x < m_aabb.x
 				|| p.x > m_aabb.x + m_aabb.w

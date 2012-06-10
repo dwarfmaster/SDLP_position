@@ -35,7 +35,7 @@ namespace sdl
 			unsigned int perimeter() const; // Périmètre
 
 			bool colision(const AABB& other) const;
-			bool isIn(const Pointsi& p) const;
+			bool contain(const Pointsi& p) const;
 
 			AABB& operator=(const AABB& cp);
 			SDL_Rect& operator*();
