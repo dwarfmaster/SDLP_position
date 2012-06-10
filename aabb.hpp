@@ -11,7 +11,7 @@ namespace sdl
 	class AABB
 	{
 		public:
-			enum Location{TOP_RIGHT, TOP_MIDDLE, TOP_LEFT, BOTTOM_RIGHT, BOTTOM_MIDDLE, BOTTOM_LEFT, LEFT, RIGHT};
+			enum Location{TOP_RIGHT, TOP, TOP_LEFT, BOTTOM_RIGHT, BOTTOM, BOTTOM_LEFT, LEFT, RIGHT};
 
 			AABB();
 			AABB(const SDL_Rect& cp);
@@ -21,6 +21,8 @@ namespace sdl
 			AABB& set(const SDL_Rect& cp);
 			AABB& set(const AABB& cp);
 			AABB& set(const Pointsi& p1, const Pointsi& p2);
+			AABB& englobe(const std::vector<AABB>& aabbs, bool strict=false);
+			AABB& englobe(const std::vector<Pointsi>& points, bool strict=false);
 			AABB& clear();
 
 			void move(const Pointsi& ori); // Déplace l'aabb à cette position
@@ -39,6 +41,7 @@ namespace sdl
 			const SDL_Rect& operator*() const;
 			SDL_Rect* operator->();
 			const SDL_Rect* operator->() const;
+			Pointsi operator[](Location p) const;
 
 		private:
 			SDL_Rect m_aabb;

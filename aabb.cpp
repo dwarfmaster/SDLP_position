@@ -48,6 +48,58 @@ namespace sdl
 		return *this;
 	}
 
+	AABB& AABB::englobe(const std::vector<AABB>& aabbs, bool strict)
+	{
+		if(aabbs.empty())
+			return *this;
+
+		Pointsi minp(aabbs[0].location(TOP_LEFT));
+		Pointsi maxp(aabbs[0].location(BOTTOM_RIGHT));
+
+		for(size_t i=1; i<aabbs.size(); ++i)
+		{
+			minp = min(minp, aabbs[i].location(TOP_LEFT));
+			maxp = max(maxp, aabbs[i].location(BOTTOM_RIGHT));
+		}
+
+		if(strict)
+		{
+			--minp.x;
+			--minp.y;
+			maxp.x+=2;
+			maxp.y+=2;
+		}
+
+		this->set(minp, maxp);
+		return *this;
+	}
+
+	AABB& AABB::englobe(const std::vector<Pointsi>& points, bool strict)
+	{
+		if(points.empty())
+			return *this;
+
+		Pointsi minp(points[0]);
+		Pointsi maxp(points[0]);
+
+		for(size_t i=1; i<points.size(); ++i)
+		{
+			minp = min(minp, points[i]);
+			maxp = max(maxp, points[i]);
+		}
+
+		if(strict)
+		{
+			--minp.x;
+			--minp.y;
+			maxp.x+=2;
+			maxp.y+=2;
+		}
+
+		this->set(minp, maxp);
+		return *this;
+	}
+
 	AABB& AABB::clear()
 	{
 		m_aabb = makeRect(0, 0, 0, 0);
@@ -90,7 +142,7 @@ namespace sdl
 			case TOP_LEFT:
 				return Pointsi(m_aabb);
 				break;
-			case TOP_MIDDLE:
+			case TOP:
 				return middle<signed int>(location(TOP_LEFT), location(TOP_RIGHT));
 				break;
 			case TOP_RIGHT:
@@ -102,7 +154,7 @@ namespace sdl
 			case BOTTOM_RIGHT:
 				return Pointsi(m_aabb.x + m_aabb.w, m_aabb.y + m_aabb.h);
 				break;
-			case BOTTOM_MIDDLE:
+			case BOTTOM:
 				return middle<signed int>(location(BOTTOM_LEFT), location(BOTTOM_RIGHT));
 				break;
 			case BOTTOM_LEFT:
@@ -161,5 +213,10 @@ namespace sdl
 	const SDL_Rect* AABB::operator->() const
 	{
 		return &m_aabb;
+	}
+
+	Pointsi AABB::operator[](Location p) const
+	{
+		return this->location(p);
 	}
 };
