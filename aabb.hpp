@@ -2,6 +2,7 @@
 #define DEF_SDLP_AABB
 
 #include <SDL/SDL.h>
+#include <vector>
 
 #include "point_dec.hpp"
 #include "tools.hpp"
