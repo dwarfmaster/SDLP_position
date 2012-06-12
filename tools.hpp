@@ -1,5 +1,5 @@
-#ifndef DEF_SDLP_TOOLS
-#define DEF_SDLP_TOOLS
+#ifndef DEF_SDLP_POS_TOOLS
+#define DEF_SDLP_POS_TOOLS
 
 #include <SDL/SDL.h>
 #include <iostream>
@@ -46,4 +46,4 @@ namespace sdl
 		}
 };
 
-#endif//DEF_SDLP_TOOLS
+#endif//DEF_SDLP_POS_TOOLS
