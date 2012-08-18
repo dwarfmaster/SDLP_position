@@ -17,14 +17,15 @@ namespace sdl
 				Point(Type mx, Type my);
 				explicit Point(Type all);
 				Point(const SDL_Rect& cp);
-				Point(const Point& cp);
+				Point(const Point<Type>& cp);
 				template<typename Cpt>
 					Point(const Point<Cpt>& cp);
 				~Point();
 
 				Point& set(Type mx, Type my);
 				Point& set(Type all);
-				Point& set(const Point& cp);
+				Point& set(const Point<Type>& cp);
+				Point& set(const SDL_Rect& cp);
 				template<typename Cpt>
 					Point& set(const Point<Cpt>& cp);
 				Point& clear();

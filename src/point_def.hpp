@@ -34,7 +34,7 @@ namespace sdl
 		}
 
 	template<typename Type>
-		Point<Type>::Point(const Point& cp)
+		Point<Type>::Point(const Point<Type>& cp)
 		:m_pointer(NULL)
 		{
 			this->set(cp);
@@ -62,7 +62,15 @@ namespace sdl
 		}
 
 	template<typename Type>
-		Point<Type>& Point<Type>::set(const Point& cp)
+		Point<Type>& Point<Type>::set(const Point<Type>& cp)
+		{
+			x=cp.x;
+			y=cp.y;
+			return *this;
+		}
+
+	template<typename Type>
+		Point<Type>& Point<Type>::set(const SDL_Rect& cp)
 		{
 			x=cp.x;
 			y=cp.y;
