@@ -1,3 +1,8 @@
+/*!
+ * \file vector2f.cpp
+ * \brief Implémente la classe Vector2f
+ */
+
 #include "vector2f.hpp"
 
 namespace sdl

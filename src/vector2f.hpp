@@ -1,3 +1,8 @@
+/*!
+ * \file vector2f.hpp
+ * \brief Définit la classe Vector2f.
+ */
+
 #ifndef DEF_SDLP_VECTOR2F
 #define DEF_SDLP_VECTOR2F
 
@@ -16,8 +21,8 @@ namespace sdl
 	class Vector2f
 	{
 		public:
-			float x;
-			float y;
+			float x; /*!< Valeur x du vecteur. */
+			float y; /*!< Valeur y du vecteur. */
 
 			Vector2f();
 			explicit Vector2f(float all);
