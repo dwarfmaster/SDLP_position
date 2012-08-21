@@ -1,3 +1,9 @@
+
+/*!
+ * \file aabb.hpp
+ * \brief définit la classe AABB.
+ */
+
 #ifndef DEF_SDLP_AABB
 #define DEF_SDLP_AABB
 
@@ -12,7 +18,16 @@ namespace sdl
 	class AABB
 	{
 		public:
-			enum Location{TOP_RIGHT, TOP, TOP_LEFT, BOTTOM_RIGHT, BOTTOM, BOTTOM_LEFT, LEFT, RIGHT};
+			enum Location{
+				TOP_RIGHT, /*!< Le coin en haut à droite. */
+				TOP,  /*!< Le point en haut au milieu. */
+				TOP_LEFT, /*!< Le coin en haut à gauche. */
+				BOTTOM_RIGHT, /*!< Le coin en bas à droite. */
+				BOTTOM, /*!< Le point en bas au milieu. */
+				BOTTOM_LEFT, /*!< Le coin en bas à gauche. */
+				LEFT, /*!< Le point à gauche au milieu. */
+				RIGHT /*!< Le point à droite au milieu. */
+			};
 
 			AABB();
 			AABB(const SDL_Rect& cp);
@@ -46,7 +61,7 @@ namespace sdl
 			Pointsi operator[](Location p) const;
 
 		private:
-			SDL_Rect m_aabb;
+			SDL_Rect m_aabb; /*!< Contient la aabb. */
 	};
 };
 

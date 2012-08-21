@@ -1,3 +1,9 @@
+
+/*!
+ * \file aabb.cpp
+ * \brief Implémente la classe AABB.
+ */
+
 #include "aabb.hpp"
 
 namespace sdl
