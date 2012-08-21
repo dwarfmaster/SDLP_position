@@ -1,4 +1,8 @@
-// #include "point.hpp"
+
+/*!
+ * \file point_def.hpp
+ * \brief Implémente la classe Point.
+ */
 
 #ifndef DEF_SDLP_DEF_POINT
 #define DEF_SDLP_DEF_POINT

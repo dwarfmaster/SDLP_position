@@ -1,3 +1,9 @@
+
+/*!
+ * \file point_dec.hpp
+ * \brief Définit la classe Point.
+ */
+
 #ifndef DEF_SDLP_POINT
 #define DEF_SDLP_POINT
 
@@ -10,8 +16,8 @@ namespace sdl
 		class Point
 		{
 			public:
-				Type x;
-				Type y;
+				Type x; /*!< La position x du point. */
+				Type y; /*!< La position y du point. */
 
 				Point();
 				Point(Type mx, Type my);
@@ -45,7 +51,7 @@ namespace sdl
 				Point& operator-=(const Vector2f& v);
 
 			private:
-				mutable SDL_Rect* m_pointer;
+				mutable SDL_Rect* m_pointer; /*!< Pointeur temporaire servant à la convertion vers SDL_Rect*. */
 		};
 
 	typedef Point<signed int> Pointsi;
