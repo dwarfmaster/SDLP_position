@@ -1,3 +1,9 @@
+
+/*!
+ * \file tools.hpp
+ * \brief Définit certains outils sur les points et les aabbs. Implémente les fonctions template.
+ */
+
 #ifndef DEF_SDLP_POS_TOOLS
 #define DEF_SDLP_POS_TOOLS
 
