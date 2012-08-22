@@ -111,7 +111,10 @@ namespace sdl
 		Point<Type>& Point<Type>::clear()
 		{
 			if(m_pointer != NULL)
+			{
 				delete m_pointer;
+				m_pointer = NULL;
+			}
 
 			x=y=0;
 			return *this;
@@ -151,7 +154,10 @@ namespace sdl
 		Point<Type>::operator SDL_Rect*() const
 		{
 			if(m_pointer != NULL)
+			{
 				delete m_pointer;
+				m_pointer = NULL;
+			}
 
 			m_pointer = new SDL_Rect(*this);
 			return m_pointer;
